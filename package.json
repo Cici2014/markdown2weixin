@@ -1,0 +1,87 @@
+{
+  "name": "markdown2weixin",
+  "displayName": "Markdown2Weixin",
+  "description": "Import Markdown to Weixin with one click.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdown2weixin.uploadToWeChat",
+        "title": "上传到微信公众号草稿箱",
+        "category": "Markdown2Weixin"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "markdown2weixin.uploadToWeChat",
+          "when": "editorLangId == markdown",
+          "group": "markdown2weixin@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Markdown2Weixin",
+      "properties": {
+        "markdown2weixin.appid": {
+          "type": "string",
+          "default": "",
+          "description": "微信公众号 AppID（必填）",
+          "order": 1
+        },
+        "markdown2weixin.appSecret": {
+          "type": "string",
+          "default": "",
+          "description": "微信公众号 AppSecret（必填）",
+          "order": 2
+        },
+        "markdown2weixin.author": {
+          "type": "string",
+          "default": "",
+          "description": "默认作者名称（可选）",
+          "order": 3
+        },
+        "markdown2weixin.digest": {
+          "type": "string",
+          "default": "",
+          "description": "默认文章摘要（可选）",
+          "order": 4
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.46.3",
+    "eslint": "^9.39.1",
+    "esbuild": "^0.27.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
