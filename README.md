@@ -107,7 +107,7 @@
 
 ## 🐛 已知问题
 
-目前暂无已知问题。如果你遇到任何问题，请在 [GitHub Issues](https://github.com/your-repo/markdown2weixin/issues) 中反馈。
+目前暂无已知问题。如果你遇到任何问题，请在 [GitHub Issues](https://github.com/Cici2014/markdown2weixin/issues) 中反馈。
 
 ## 📝 Release Notes
 
@@ -122,6 +122,9 @@
 ## 🤝 贡献
 
 欢迎提交 Issue 和 Pull Request！
+
+项目地址
+https://github.com/Cici2014/markdown2weixin
 
 ## 📄 License
 
